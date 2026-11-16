@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pastclimate"
+dynamic = ["version"]
+description = "Official Python client for the PastClimate API: historical daily, hourly, monthly and yearly weather, climate normals and records."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "PastClimate" }]
+keywords = ["weather", "climate", "historical weather", "api", "pastclimate"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Atmospheric Science",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://developer.pastclimate.com/api/"
+# Placeholder: the owner must confirm the repository.
+Source = "https://github.com/pastclimate/pastclimate-python"
+
+[tool.hatch.version]
+path = "src/pastclimate/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pastclimate"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/pastclimate", "tests", "examples", "README.md", "LICENSE", "pyproject.toml"]

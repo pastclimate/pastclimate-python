@@ -1,0 +1,117 @@
+"""Official Python client for the PastClimate API.
+
+    from pastclimate import Client
+
+    client = Client()  # reads PASTCLIMATE_API_KEY
+    resp = client.get_daily("gb/london", start="2024-01-01", end="2024-01-31")
+    print(resp.data[0].daily_max_temp, resp.credits_used, resp.credits_remaining)
+"""
+
+from ._http import HTTPRequest, HTTPResponse, RateLimit, Transport
+from ._version import __version__
+from .client import API_KEY_ENV_VAR, DEFAULT_BASE_URL, USER_AGENT, Client
+from .errors import (
+    ApiError,
+    AuthenticationError,
+    InvalidRequestError,
+    NetworkError,
+    NotFoundError,
+    PastClimateError,
+    PlanRequiredError,
+    QuotaExceededError,
+    RateLimitError,
+    ServerError,
+)
+from .models import (
+    ApiResponse,
+    Coverage,
+    CountryCoverage,
+    CsvResponse,
+    DailyMeta,
+    DailyRow,
+    HourlyMeta,
+    HourlyRow,
+    Location,
+    LocationCoverage,
+    LocationDetail,
+    LocationSearchResult,
+    Me,
+    MeCredits,
+    MeKey,
+    MePlan,
+    MeRateLimit,
+    Meta,
+    MonthlyRow,
+    NearestLocation,
+    Normals,
+    NormalsDayRow,
+    NormalsMeta,
+    NormalsMonthlyRow,
+    OutputFormat,
+    RecordItem,
+    RecordsMeta,
+    Requested,
+    RowsMeta,
+    SearchMeta,
+    UnitSystem,
+    Units,
+    YearlyRow,
+)
+
+__all__ = [
+    "__version__",
+    "Client",
+    "DEFAULT_BASE_URL",
+    "API_KEY_ENV_VAR",
+    "USER_AGENT",
+    # transport
+    "HTTPRequest",
+    "HTTPResponse",
+    "Transport",
+    "RateLimit",
+    # errors
+    "PastClimateError",
+    "ApiError",
+    "AuthenticationError",
+    "InvalidRequestError",
+    "NotFoundError",
+    "PlanRequiredError",
+    "RateLimitError",
+    "QuotaExceededError",
+    "ServerError",
+    "NetworkError",
+    # response wrappers and models
+    "ApiResponse",
+    "CsvResponse",
+    "UnitSystem",
+    "OutputFormat",
+    "Units",
+    "Requested",
+    "Location",
+    "LocationSearchResult",
+    "LocationCoverage",
+    "LocationDetail",
+    "NearestLocation",
+    "DailyRow",
+    "HourlyRow",
+    "MonthlyRow",
+    "YearlyRow",
+    "NormalsMonthlyRow",
+    "NormalsDayRow",
+    "Normals",
+    "RecordItem",
+    "CountryCoverage",
+    "Coverage",
+    "MePlan",
+    "MeKey",
+    "MeCredits",
+    "MeRateLimit",
+    "Me",
+    "Meta",
+    "SearchMeta",
+    "DailyMeta",
+    "HourlyMeta",
+    "RowsMeta",
+    "NormalsMeta",
+    "RecordsMeta",
+]
